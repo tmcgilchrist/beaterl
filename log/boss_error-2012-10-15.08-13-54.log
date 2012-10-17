@@ -1,0 +1,42 @@
+
+=INFO REPORT==== 15-Oct-2012::08:13:54 ===
+Starting Boss in development mode....
+
+=INFO REPORT==== 15-Oct-2012::08:13:54 ===
+Starting master services on beaterl@phoenix
+
+=INFO REPORT==== 15-Oct-2012::08:13:54 ===
+SSL:[]
+
+=INFO REPORT==== 15-Oct-2012::08:13:54 ===
+Loading routes from "/Users/tim/source/beaterl/priv/beaterl.routes" ....
+
+=INFO REPORT==== 15-Oct-2012::08:14:01 ===
+Loading routes from "/Users/tim/source/beaterl/priv/beaterl.routes" ....
+
+=ERROR REPORT==== 15-Oct-2012::08:14:01 ===
+GET / [beaterl] 404 0ms
+
+=INFO REPORT==== 15-Oct-2012::08:15:40 ===
+Loading routes from "/Users/tim/source/beaterl/priv/beaterl.routes" ....
+
+=ERROR REPORT==== 15-Oct-2012::08:15:40 ===
+GET / [beaterl] 404 1ms
+
+=INFO REPORT==== 15-Oct-2012::09:40:45 ===
+Loading routes from "/Users/tim/source/beaterl/priv/beaterl.routes" ....
+
+=ERROR REPORT==== 15-Oct-2012::09:40:45 ===
+GET / [beaterl] 404 5ms
+
+=INFO REPORT==== 15-Oct-2012::11:06:11 ===
+Loading routes from "/Users/tim/source/beaterl/priv/beaterl.routes" ....
+
+=ERROR REPORT==== 15-Oct-2012::11:06:11 ===
+GET / [beaterl] 404 3ms
+
+=INFO REPORT==== 15-Oct-2012::12:35:06 ===
+Loading routes from "/Users/tim/source/beaterl/priv/beaterl.routes" ....
+
+=ERROR REPORT==== 15-Oct-2012::12:35:06 ===
+GET / [beaterl] 404 5ms
