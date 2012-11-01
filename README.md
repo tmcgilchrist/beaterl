@@ -9,9 +9,9 @@
 
 ## TODO
 
-* include ember.js library and deps
-* serve up a main HTML page
-* basic styling with CSS
+* include ember.js library and deps (DONE)
+* serve up a main HTML page (DONE)
+* basic styling with CSS (DONE)
 * setup deployment to Heroku
 * configure a Postgres backend
 * layout main views of application
