@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>BeatERL</title>
+</head>
+<body>
+  <script src="js/jquery-1.7.2.js"></script>
+  <script src="js/handlebars-1.0.0.beta.6.js"></script>
+  <script src="js/ember-1.0.pre.js"></script>
+  <script src="js/app.js"></script>
+
+  <script type="text/x-handlebars" data-template-name="application">
+    {{outlet greeting}}
+    <p {{bindAttr class="isSlogan"}} > Ember is: {{slogan}}</p>
+    <hr/>
+    {{outlet body}}
+    {{outlet footer}}
+  </script>
+  <script type="text/x-handlebars" data-template-name="cars">
+    <h1>Cars</h1>
+    <p>Here in my car / I feel safest of all</p>
+  </script>
+  <script type="text/x-handlebars" data-template-name="shoes">
+    <hr/>
+    <h1>Shoes</h1>
+    <h1>Current Shoes</h1>
+    <p>
+      {{#each shoe in controller}}
+        {{#with shoe}}
+          <li style="color: #000">
+            <a {{action showShoe this href=true}}> {{id}} | {{name}} | {{price}} : {{description}} </a> </li>
+        {{/with}}
+      {{/each}}
+    </p>
+    <p><a href="http://youtu.be/v_Yx0X-eHn8">N&uuml; Shooz?</p>
+  </script>
+  <script type="text/x-handlebars" data-template-name="salutation">
+    <h1>{{greeting}}</h1>
+  </script>
+  <script type="text/x-handlebars" data-template-name="traversal">
+    <p><a {{action goToCars href=true}}>Go To Cars</a>
+    <p><a {{action goToShoes href=true}}>Go To Shoes</a>
+  </script>
+  <script type="text/x-handlebars" data-template-name="shoe">
+    <h1>Vital facts about ID: {{id}}:  {{name}}</h1>
+    <p>{{description}}</p>
+  </script>
+</body>
+</html>

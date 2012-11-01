@@ -1,5 +1,5 @@
 {application, beaterl, [
-        {description, "My Awesome Web Framework"},
+        {description, "Erlang Powered Music Machine"},
         {vsn, "0.0.1"},
         {modules, []},
         {registered, []},

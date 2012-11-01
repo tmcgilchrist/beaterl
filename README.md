@@ -9,20 +9,20 @@
 
 ## TODO
 
- * get music_streamer listening on port (DONE)
- * setup webmachine and deps to load : need to setup catalogue deps to load
- * load catalogue of songs from file
- * loading Javascript and serving HTML
+* include ember.js library and deps
+* serve up a main HTML page
+* basic styling with CSS
+* setup deployment to Heroku
+* configure a Postgres backend
+* layout main views of application
 
 
-Applications:
- * web app serves JavaScript / HTML / Templates
- * music_streamer, serves music files up to HTML music player
-   REST API
+    REST API
        GET /catalogue.json
        GET /album/:name.json
        GET /album/:name/track/:number.json
        GET /album/:name/track/:number.mp3  => returns binary stream
+       GET /album/:name/track/:number.aac  => returns binary stream
        GET /artist/:name.json
 
  {catalogue: [{album: 'Name'}, ..]}
@@ -39,15 +39,3 @@ Applications:
       title: '',
       ...
   }
-
-
-## Building From Source
-
-Clone webmachine and mochiweb git repositories into the lib directory.
-
-    git clone git://github.com/mochi/mochiweb.git lib
-    git clone git://github.com/basho/webmachine.git lib
-
-Then run the sinan build with
-
-    sinan build
