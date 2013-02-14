@@ -12,12 +12,14 @@
 * include ember.js library and deps (DONE)
 * serve up a main HTML page (DONE)
 * basic styling with CSS (DONE)
+  -> Redo styling using http://foundation.zurb.com
 * setup deployment to Heroku
-* serve index.html from root url.
+* serve index.html from root url. (DONE)
   -> Sorted for now, reading the html directly
 * configure a Postgres backend
 * layout main views of application
 
+* TDD out the erlang backend
 
     REST API
        GET /catalogue.json
