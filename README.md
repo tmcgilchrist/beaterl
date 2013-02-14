@@ -13,6 +13,8 @@
 * serve up a main HTML page (DONE)
 * basic styling with CSS (DONE)
 * setup deployment to Heroku
+* serve index.html from root url.
+  -> Sorted for now, reading the html directly
 * configure a Postgres backend
 * layout main views of application
 
