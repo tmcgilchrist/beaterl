@@ -23,3 +23,6 @@
 % {500, [{controller, "world"}, {action, "calamity"}]}.
 
 {"/", [{controller, "home"}, {action, "index"}]}.
+
+{"/album/(\\d+)",  [{controller, "albums"}, {action, "show"}, {id, '$2'}]}.
+{"/albums",    [{controller, "albums"}, {action, "index"}]}.
