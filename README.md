@@ -18,6 +18,9 @@
   -> Sorted for now, reading the html directly
 * configure a Postgres backend
 * layout main views of application
+* change JS to use Require.js
+* add in SoundManager2 for audio playback
+* add panel for visualiser https://github.com/jsantell/dancer.js
 
 * TDD out the erlang backend
 
