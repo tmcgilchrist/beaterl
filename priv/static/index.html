@@ -18,23 +18,42 @@
         <div class="twelve columns">
           <h1>Music</h1>
           <hr>
+          <p>{{ outlet }}</p>
+        </div>
+      </div>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="albums">
+      <div class="row">
+        <div class="four columns" id="albums">
+          {{ partial "albumsList" }}
+        </div>
+        <div class="eight columns" id="album">
           {{ outlet }}
         </div>
       </div>
     </script>
 
-    <script type="text/x-handlebars" data-template-name="index">
-      Hello.
+    <script type="text/x-handlebars" data-template-name="albums/index">
+      <h2>Select an Album at left</h2>
     </script>
 
-    <script type="text/x-handlebars" data-template-name="albums">
-      <div class="row">
-        <h2>List of Albums</h2>
-        <ul>
-        {{#each album in controller }}
-          <li>{{ album.name }}, {{ album.artist }}</li>
+    <script type="text/x-handlebars" data-template-name="_albumsList">
+      <h2>Albums</h2>
+      <ul>
+        {{#each album in controller}}
+        <li>{{#linkTo 'album' album class="foo"}}{{ album.name }}{{/linkTo}}</li>
         {{/each}}
-        </ul>
+      </ul>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="album">
+      <div class="row">
+        <div class="eight columns">
+          <h3>Album: {{ name }}</h3>
+          <p> by {{ artist }}</p>
+          <img {{ bindAttr src="coverImage" }}>
+        </div>
       </div>
     </script>
 

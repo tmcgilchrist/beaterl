@@ -1,14 +1,14 @@
-#tables a {
+#albums a {
   font-weight: bold;
   font-size: 2.5em;
   text-align: center;
 }
 
-#tables a:hover {
+#albums a:hover {
   background-color: #e6e6e6;
 }
 
-#tables .active:hover, .active, h2 span {
+#albums .active:hover, .active, h2 span {
   background-color: #333;
   color: white;
 }
