@@ -40,7 +40,7 @@
 
     <script type="text/x-handlebars" data-template-name="_albumsList">
       <h2>Albums</h2>
-      <ul>
+      <ul id="albums-list">
         {{#each album in controller}}
         <li>{{#linkTo 'album' album class="foo"}}{{ album.name }}{{/linkTo}}</li>
         {{/each}}

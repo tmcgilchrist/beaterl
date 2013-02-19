@@ -1,6 +1,5 @@
 #albums a {
   font-weight: bold;
-  font-size: 2.5em;
   text-align: center;
 }
 
@@ -13,20 +12,19 @@
   color: white;
 }
 
-ul#menu li {
+ul#albums-list li {
   list-style-type: none;
-  text-align: center;
+  text-align: left;
   padding-bottom: 1em;
 }
-ul#menu li div {
+ul#albums-list li div {
   font-size: 64px;
   line-height: 64px;
 }
-ul#menu li p {
+ul#albums-list li p {
   font-weight: bold;
   text-transform: uppercase;
 }
-
 
 #customer-tab {
   background-color: #f2f2f2;
@@ -51,10 +49,10 @@ ul#menu li p {
   float: right;
 }
 
-#order {
-  border-left: 1px dashed #333;
+#album {
+  border-left: 1px solid #333;
 }
-#order h2 {
+#album h2 {
   text-align: center;
 }
 h2 span {
