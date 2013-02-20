@@ -50,9 +50,18 @@
     <script type="text/x-handlebars" data-template-name="album">
       <div class="row">
         <div class="eight columns">
-          <h3>Album: {{ name }}</h3>
-          <p> by {{ artist }}</p>
-          <img {{ bindAttr src="coverImage" }}>
+          <h3>{{ name }}</h3>
+          <p> by {{ artist }} </p>
+          <div class="six columns">
+            <ol>
+              {{#each tracks }}
+              <li>{{name}}</li>
+              {{/each}}
+            </ol>
+          </div>
+          <div class="six columns">
+            <img {{ bindAttr src="coverImage" }}>
+          </div>
         </div>
       </div>
     </script>
