@@ -1,0 +1,2 @@
+-module(album, [Id, Artist, Title]).
+-compile(export_all).
