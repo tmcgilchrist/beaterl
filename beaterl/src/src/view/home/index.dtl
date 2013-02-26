@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <!--Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
+
+    <title>BeatERL</title>
+
+    <link href="static/css/foundation.css" rel="stylesheet">
+    <link href="static/css/beaterl.css" rel="stylesheet">
+  </head>
+  <body>
+    {% verbatim %}
+    <script type="text/x-handlebars" data-template-name="application">
+      <div class="row">
+        <div class="twelve columns">
+          <h1>Music</h1>
+          <hr>
+          <p>{{ outlet }}</p>
+        </div>
+      </div>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="albums">
+      <div class="row">
+        <div class="four columns" id="albums">
+          {{ partial "albumsList" }}
+        </div>
+        <div class="eight columns" id="album">
+          {{ outlet }}
+        </div>
+      </div>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="albums/index">
+      <h2>Select an Album at left</h2>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="_albumsList">
+      <h2>Albums</h2>
+      <ul id="albums-list">
+        {{#each album in controller}}
+        <li>{{#linkTo 'album' album class="foo"}}{{ album.name }}{{/linkTo}}</li>
+        {{/each}}
+      </ul>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="album">
+      <div class="row">
+        <div class="eight columns">
+          {{outlet player}}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="eight columns">
+          <h3>{{ name }}</h3>
+          <p> by {{ artist }} </p>
+          <div class="six columns">
+            <ol>
+              {{#each tracks }}
+              <li>{{name}}</li>
+              {{/each}}
+            </ol>
+          </div>
+          <div class="six columns">
+            <img {{ bindAttr src="coverImage" }}>
+          </div>
+        </div>
+      </div>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="player">
+
+    </script>
+    {% verbatim %}
+    <script src="static/js/jquery-1.8.3.min.js"></script>
+    <script src="static/js/handlebars-1.0.0.rc.2.js"></script>
+    <script src="static/js/ember-1.0.0-pre.4.js"></script>
+    <script src="static/js/ember-data.js"></script>
+    <script src="static/js/beaterl.js"></script>
+  </body>
+</html>
