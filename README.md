@@ -9,11 +9,18 @@
 
 ## TODO
 
+* add simple html5 player from Peepcode screencast. CURRENT
+ * if we wrap it up with a playlist and simple interface to play/stop/skip etc
+   we should be good.
+* add instructions for dealing with the submodule
+* add view for editing an album
+* add view for creating a new album
 * include ember.js library and deps (DONE)
 * serve up a main HTML page (DONE)
 * basic styling with CSS (DONE)
   -> Redo styling using http://foundation.zurb.com
 * setup deployment to Heroku
+  * add instructions for deploying to heroku
 * serve index.html from root url. (DONE)
   -> Sorted for now, reading the html directly
 * configure a Postgres backend
@@ -21,6 +28,27 @@
 * change JS to use Require.js
 * add in SoundManager2 for audio playback
 * add panel for visualiser https://github.com/jsantell/dancer.js
+
+
+
+|---------------------------------------------------------------|
+|               |
+| List of Music |          Player / Playlist ??
+|               |
+|               |-----------------------------------------------|
+|               |  Selected Album Details
+|               |     or Visualiser
+|               |
+|               |
+|               |
+|               |
+|               |
+|               |
+|               |
+|               |
+|---------------------------------------------------------------|
+
+
 
 * TDD out the erlang backend
 
