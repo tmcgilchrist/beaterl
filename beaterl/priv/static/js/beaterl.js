@@ -22,7 +22,26 @@ App.AlbumsRoute = Ember.Route.extend({
 // Controller
 App.AlbumsController = Ember.ArrayController.extend();
 
-App.AlbumController = Ember.ObjectController.extend();
+App.AlbumController = Ember.ObjectController.extend({
+    isEditing: false,
+
+    doneEditing: function() {
+        this.set('isEditing', false);
+    },
+    edit: function() {
+        this.set('isEditing', true);
+    },
+    play: function() {
+        console.log("playing: " + tmodel.name);
+    }
+});
+
+App.PlayerController = Ember.ObjectController.extend();
+
+// Views
+App.PlayerView = Ember.View.extend({
+    templateName: 'player-view'
+});
 
 // Models
 App.Store = DS.Store.extend({

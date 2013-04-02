@@ -16,7 +16,7 @@
     <script type="text/x-handlebars" data-template-name="application">
       <div class="row">
         <div class="twelve columns">
-          <h1>Music</h1>
+          <h2>Music</h2>
           <hr>
           <p>{{ outlet }}</p>
         </div>
@@ -24,6 +24,12 @@
     </script>
 
     <script type="text/x-handlebars" data-template-name="albums">
+      <div class="row">
+        <div class="eight columns">
+          {{view App.PlayerView}}
+        </div>
+      </div>
+
       <div class="row">
         <div class="four columns" id="albums">
           {{ partial "albumsList" }}
@@ -47,17 +53,30 @@
       </ul>
     </script>
 
+    <script type="text/x-handlebars" data-template-name="album/_edit">
+
+      <p>{{view Ember.TextField valueBinding='name'}}</p>
+      <p>{{view Ember.TextField valueBinding='artist'}}</p>
+      <ol>
+      {{#each track in tracks}}
+        <li>{{view Ember.TextField valueBinding='track.name'}}</li>
+      {{/each}}
+      </ol>
+    </script>
+
+
     <script type="text/x-handlebars" data-template-name="album">
       <div class="row">
-        <div class="eight columns">
-          {{outlet player}}
-        </div>
-      </div>
-
-      <div class="row">
+        {{#if isEditing}}
+          {{partial 'album/edit'}}
+          <button {{action 'doneEditing'}}>Done</button>
+        {{else}}
+          <button {{action 'edit'}}>Edit</button>
+        {{/if}}
         <div class="eight columns">
           <h3>{{ name }}</h3>
-          <p> by {{ artist }} </p>
+          <p> by {{ artist }} <button {{action 'play'}}>Play</button></p>
+
           <div class="six columns">
             <ol>
               {{#each tracks }}
@@ -72,9 +91,11 @@
       </div>
     </script>
 
-    <script type="text/x-handlebars" data-template-name="player">
-
+    <script type="text/x-handlebars" data-template-name="player-view">
+      <h3> Player </h3>
+      {{ controller }}
     </script>
+
     {% endverbatim %}
     <script src="static/js/jquery-1.8.3.min.js"></script>
     <script src="static/js/handlebars-1.0.0.rc.2.js"></script>
