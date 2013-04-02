@@ -32,7 +32,7 @@ App.AlbumController = Ember.ObjectController.extend({
         this.set('isEditing', true);
     },
     play: function() {
-        console.log("playing: " + tmodel.name);
+        console.log("playing: " + this.get('model').get('name'));
     }
 });
 
