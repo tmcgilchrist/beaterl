@@ -1,8 +1,0 @@
-{application, beaterl, [
-        {description, "Erlang Powered Music Machine"},
-        {vsn, "0.0.1"},
-        {modules, []},
-        {registered, []},
-        {applications, [kernel, stdlib, crypto, boss]},
-        {env, []}
-    ]}.
