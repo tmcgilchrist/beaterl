@@ -1,2 +1,12 @@
 log
 .DS_Store
+/beaterl/ebin/album.beam
+/beaterl/ebin/beaterl.app
+/beaterl/ebin/beaterl_albums_controller.beam
+/beaterl/ebin/beaterl_custom_filters.beam
+/beaterl/ebin/beaterl_custom_tags.beam
+/beaterl/ebin/beaterl_home_controller.beam
+/beaterl/ebin/beaterl_incoming_mail_controller.beam
+/beaterl/ebin/beaterl_outgoing_mail_controller.beam
+/beaterl/ebin/beaterl_view_home_index_dtl.beam
+/beaterl/ebin/beaterl_view_lib_tags.beam
