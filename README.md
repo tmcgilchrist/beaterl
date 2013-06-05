@@ -9,7 +9,7 @@
 
 ## TODO
 
-* add simple html5 player from Peepcode screencast. CURRENT
+* add simple html5 player from Peepcode screencast.
  * if we wrap it up with a playlist and simple interface to play/stop/skip etc
    we should be good.
 * add instructions for dealing with the submodule
@@ -74,3 +74,16 @@
       title: '',
       ...
   }
+
+
+(beaterl@phoenix)1> Album = album:new(id, "Bleach", "Nirvana", "'static/img/nirvana-bleach.jpg'").
+{album,id,"Bleach","Nirvana",
+       "'static/img/nirvana-bleach.jpg'"}
+(beaterl@phoenix)2> Album.save().
+* 1: illegal expression
+(beaterl@phoenix)3> Album:save().
+{ok,{album,"album-1","Bleach","Nirvana",
+           "'static/img/nirvana-bleach.jpg'"}}
+(beaterl@phoenix)4> Track1 = track:new(id, "Blew", 1, Album:id()).
+{track,id,"Blew",1,id}
+(beaterl@phoenix)5> Track1:save().
