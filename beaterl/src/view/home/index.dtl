@@ -28,10 +28,10 @@
         <div class="four columns" id="playlist">
           {{render playlist}}
         </div>
-        <div class="four columns" id="albums">
+        <div class="three columns" id="albums">
           {{ partial "albumsList" }}
         </div>
-        <div class="four columns" id="album">
+        <div class="five columns" id="album">
           {{ outlet }}
         </div>
       </div>
@@ -39,6 +39,8 @@
 
     <script type="text/x-handlebars" data-template-name="playlist">
       <h2>Playlist</h2>
+      {{ render player }}
+      {{controller}}
       <ul>
         {{#each album in controller}}
         {{ render playlistAlbum album}}
@@ -88,10 +90,10 @@
         <div class="eight columns">
           <h3>{{ name }}</h3>
           <p> by {{ artist }} <button {{action queueAlbum this}}>Play</button></p>
-
+          {{controller}}
           <div class="six columns">
             <ol>
-              {{#each tracks }}
+              {{#each tracks}}
               <li>{{name}}</li>
               {{/each}}
             </ol>
@@ -104,7 +106,13 @@
     </script>
 
     <script type="text/x-handlebars" data-template-name="player">
+      {{controller}}<br/>
+      {{isPlaying}}
+      {{#if isPlaying}}
+      <button class="control pause" {{action pause}}>Pause</button>
+      {{else}}
       <button class="control play" {{action play}}>Play</button>
+      {{/if}}
       <button class="control prev" {{action prev}}>Prev</button>
       <button class="control next" {{action next}}>Next</button>
     </script>

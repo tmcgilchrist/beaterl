@@ -43,18 +43,42 @@ App.AlbumController = Ember.ObjectController.extend({
   },
   play: function() {
     App.Playlist = this.get('model');
-    console.log("playing: " + App.Playlist.get('name'));
   }
 });
 
 App.PlaylistController = Ember.ArrayController.extend({
+  currentTrack: null,
+
   addObject: function(album) {
     this.get('content').addObject(album);
+
+    if (this.get('content').length == 1) {
+      this.set('currentTrack', album.get('tracks.firstObject'));
+    }
   }
 });
 
 App.PlayerController = Ember.ObjectController.extend({
 
+  needs: ['playlist'],
+
+  currentTrack: Ember.computed.alias('controllers.playlist.currentTrack'),
+
+  isPlaying: false,
+
+  play: function() {
+    console.log('playing', this.get('currentTrack.name'));
+    if (!this.get('currentTrack')) {
+      return;
+    }
+
+    this.set('isPlaying', true);
+  },
+
+  pause: function() {
+    console.log('pause');
+    this.set('isPlaying', false);
+  }
 });
 
 // Views
