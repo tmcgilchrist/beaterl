@@ -13,34 +13,50 @@
   </head>
   <body>
     {% verbatim %}
-    <script type="text/x-handlebars" data-template-name="application">
+    <header>
       <div class="row">
         <div class="twelve columns">
-          <h2>Music</h2>
-          <hr>
-          <p>{{ outlet }}</p>
+          <h1>Beaterl Music Player</h1>
         </div>
       </div>
+    </header>
+
+    <script type="text/x-handlebars" data-template-name="application">
+      <section id="content">
+        <div class="row">
+          <div class="twelve columns">
+            {{ render player }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="twelve columns">
+            {{ outlet }}
+          </div>
+        </div>
+      </section>
+      <section id="footer">
+        <div class="row">
+          <h4>Footer</h4>
+        </div>
+      </section>
     </script>
 
     <script type="text/x-handlebars" data-template-name="albums">
-      <div class="row">
         <div class="four columns" id="playlist">
           {{render playlist}}
         </div>
-        <div class="three columns" id="albums">
+        <div class="four columns" id="albums">
           {{ partial "albumsList" }}
         </div>
-        <div class="five columns" id="album">
+        <div class="four columns" id="album">
           {{ outlet }}
         </div>
-      </div>
+
     </script>
 
     <script type="text/x-handlebars" data-template-name="playlist">
-      <h2>Playlist</h2>
-      {{ render player }}
-      {{controller}}
+      <h4>Playlist</h4>
+
       <ul>
         {{#each album in controller}}
         {{ render playlistAlbum album}}
@@ -52,15 +68,24 @@
       <li>
         {{album.name}} - {{album.artist}}
         <button class="queue remove" {{action dequeueAlbum this.content}}>-</button>
+        {{render listTracks album }}
       </li>
     </script>
 
+    <script type="text/x-handlebars" data-template-name="listTracks">
+      <ol>
+        {{#each track in album.tracks}}
+        <li>{{track.name}}</li>
+        {{/each}}
+      </ol>
+    </script>
+
     <script type="text/x-handlebars" data-template-name="albums/index">
-      <h2>Select an Album at left</h2>
+      <h4>Select an Album at left</h4>
     </script>
 
     <script type="text/x-handlebars" data-template-name="_albumsList">
-      <h2>Albums</h2>
+      <h4>Albums</h4>
       <ul id="albums-list">
         {{#each album in controller}}
         <li>{{#linkTo 'album' album class="foo"}}{{ album.name }}{{/linkTo}}</li>
@@ -80,34 +105,34 @@
     </script>
 
     <script type="text/x-handlebars" data-template-name="album">
-      <div class="row">
-        {{#if isEditing}}
-          {{partial 'album/edit'}}
-          <button {{action 'doneEditing'}}>Done</button>
-        {{else}}
-          <button {{action 'edit'}}>Edit</button>
-        {{/if}}
-        <div class="eight columns">
-          <h3>{{ name }}</h3>
-          <p> by {{ artist }} <button {{action queueAlbum this}}>Play</button></p>
-          {{controller}}
-          <div class="six columns">
+      <div>
+        <div >
+          <h5>{{ name }}</h5>
+          <p> by {{ artist }}
+            <button {{action queueAlbum this}}>Play</button>
+            {{#if isEditing}}
+              {{partial 'album/edit'}}
+              <button {{action 'doneEditing'}}>Done</button>
+            {{else}}
+              <button {{action 'edit'}}>Edit</button>
+            {{/if}}
+          </p>
+          <div>
+            <img {{ bindAttr src="coverImage" }}>
+          </div>
+          <div >
             <ol>
               {{#each tracks}}
               <li>{{name}}</li>
               {{/each}}
             </ol>
           </div>
-          <div class="six columns">
-            <img {{ bindAttr src="coverImage" }}>
-          </div>
         </div>
       </div>
     </script>
 
     <script type="text/x-handlebars" data-template-name="player">
-      {{controller}}<br/>
-      {{isPlaying}}
+      <p>Current Track: {{currentTrack.name}}</p>
       {{#if isPlaying}}
       <button class="control pause" {{action pause}}>Pause</button>
       {{else}}
@@ -122,6 +147,7 @@
     <script src="static/js/handlebars-1.0.0-rc.4.js"></script>
     <script src="static/js/ember-1.0.0-rc.5.js"></script>
     <script src="static/js/ember-data-0.13.js"></script>
+    <script src="static/js/underscore.js"></script>
     <script src="static/js/beaterl.js"></script>
   </body>
 </html>
